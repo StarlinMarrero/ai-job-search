@@ -35,6 +35,58 @@ Keep answers to 1-2 minutes. Be specific. End with what you learned or would do 
 
 <!-- Add more STAR examples as needed. Aim for 4-6 covering different competencies. -->
 
+## STAR Candidates (Complete Manually)
+
+### Knockout.js to React legacy migration
+**Source:** CV - Software Engineer, OpSec Security
+**What happened:** Migrated legacy Knockout.js modules to modern React components, improving maintainability and developer onboarding time.
+**Why it matters:** "Tell me about a time you improved a legacy system", technical decision-making, dealing with technical debt.
+**S/T/A/R stub:**
+- Situation:
+- Task:
+- Action:
+- Result:
+
+### Real-time communication systems (WebSockets/Socket.io)
+**Source:** CV - Senior Software Developer, Media Revolution
+**What happened:** Designed and implemented real-time systems using WebSockets and Socket.io for live data experiences.
+**Why it matters:** System design questions, "hardest technical challenge", scalability discussions.
+**S/T/A/R stub:**
+- Situation:
+- Task:
+- Action:
+- Result:
+
+### Blockchain integration initiative lead
+**Source:** CV + LinkedIn - Senior Software Developer, Media Revolution
+**What happened:** Led blockchain adoption initiative, advised product leadership on technical feasibility.
+**Why it matters:** Leadership without authority, influencing stakeholders, evaluating new technology, initiative.
+**S/T/A/R stub:**
+- Situation:
+- Task:
+- Action:
+- Result:
+
+### Manual email workflow replaced with automated web reporting
+**Source:** CV + LinkedIn - ACD / Web Developer, OPITEL (Claro RD)
+**What happened:** Data from multiple sources was consolidated manually via email exchange; built a single web system that automated it, plus self-service statistics reports for supervisors and agents.
+**Why it matters:** Initiative, process improvement, business impact, "a time you identified a problem nobody asked you to fix".
+**S/T/A/R stub:**
+- Situation:
+- Task:
+- Action:
+- Result:
+
+### Mentoring juniors and code review culture
+**Source:** CV - Senior Software Developer, Media Revolution
+**What happened:** Conducted regular code reviews and mentored junior developers.
+**Why it matters:** Teamwork, leadership, "how do you handle disagreement in code review", seniority signal.
+**S/T/A/R stub:**
+- Situation:
+- Task:
+- Action:
+- Result:
+
 ## Common Tough Questions
 
 ### "Why did you leave [previous company]?"

@@ -1,10 +1,7 @@
-# Job Application Assistant for [YOUR_NAME]
-
-<!-- SETUP: This file is populated by running /setup -->
-<!-- After running /setup, all [PLACEHOLDER] tokens will be replaced with your actual information -->
+# Job Application Assistant for Starlin Marrero
 
 ## Role
-This repo is a job application workspace. Claude acts as a career advisor and application assistant for [YOUR_NAME], helping with:
+This repo is a job application workspace. Claude acts as a career advisor and application assistant for Starlin Marrero, helping with:
 1. **Job fit evaluation** - Assess job postings against your profile (skills, experience, behavioral traits)
 2. **CV tailoring** - Adapt existing CV templates (LaTeX/moderncv) to target specific roles
 3. **Cover letter writing** - Draft targeted cover letters using existing templates (LaTeX)
@@ -13,68 +10,70 @@ This repo is a job application workspace. Claude acts as a career advisor and ap
 
 ## Candidate Profile
 
-<!-- This section is auto-populated by /setup. You can also fill it in manually. -->
-
 ### Identity
-- **Name:** [YOUR_NAME]
-- **Location:** [YOUR_CITY], [YOUR_COUNTRY] ([YOUR_COMMUTE_CONSTRAINTS])
-- **Languages:** [YOUR_LANGUAGES]
-- **Status:** [YOUR_EMPLOYMENT_STATUS]
-- **LinkedIn headline:** "[YOUR_LINKEDIN_HEADLINE]"
+- **Name:** Starlin Marrero
+- **Location:** Santo Domingo, Dominican Republic (open to remote anywhere; DR local/hybrid also fine)
+- **Languages:** Spanish (native), English (fluent, professional)
+- **Status:** Employed - Backend Node.js Developer at BDG, S.A. (open to new opportunities)
+- **LinkedIn headline:** "Software Engineer | React.js | Node.js | TypeScript | Next.js | React Native | Python | Go | .NET | Cloudflare | Docker | Azure | AWS | SCRUM | +8 Years experience"
 
 ### Education
-<!-- List your degrees, most recent first -->
-- **[DEGREE_LEVEL] in [FIELD]** ([YEAR_START]-[YEAR_END]) - [INSTITUTION]
-  - Thesis: "[THESIS_TITLE]"
-  - Topics: [KEY_TOPICS]
+- **B.Sc. Systems & Computer Engineering** (2021-present, in progress) - Universidad Dominicana O&M, Santo Domingo
+- **Informática** (2016-2017) - Infotep
 
 ### Professional Experience
-<!-- List your roles, most recent first -->
-- **[JOB_TITLE]** ([START_DATE] - [END_DATE]) - **[COMPANY]** ([LOCATION])
-  - [KEY_RESPONSIBILITY_1]
-  - [KEY_RESPONSIBILITY_2]
-  - [KEY_ACHIEVEMENT]
+- **Backend Node.js Developer** (May 2026 - Present) - **BDG, S.A.** (Santo Domingo, DR)
+  - Backend APIs with Node.js/NestJS for BANTRAB (major financial services client), core banking systems
+  - Data access layers with Oracle DB and TypeORM
+  - Unit and integration tests with Jest
+- **Software Engineer** (Sep 2023 - Aug 2025) - **OpSec Security** (US, remote)
+  - Security-critical web platforms for enterprise brand protection
+  - RESTful APIs for internal tools and third-party partners; Docker + Azure deployments
+  - Migrated legacy Knockout.js modules to React
+- **Senior Software Developer** (Aug 2021 - Sep 2023) - **Media Revolution, SRL** (DR)
+  - Full-stack web + mobile (React, Next.js, React Native, Node.js, ASP.NET Core, PostgreSQL)
+  - Real-time systems with WebSockets/Socket.io; REST and GraphQL APIs
+  - Led blockchain integration initiative; mentored juniors, ran code reviews; AWS + CI/CD optimization
+- **ACD / Web Developer** (Dec 2016 - Aug 2021) - **OPITEL (Claro RD)** (Santo Domingo, DR)
+  - Internal web apps ("Claro Ayuda") for major telecom, thousands of daily users (C#, ASP.NET, SQL Server)
+  - Automated reporting pipelines, replaced manual email-based data workflows
 
 ### Technical Skills
-- **Primary:** [YOUR_PRIMARY_SKILLS]
-- **Secondary:** [YOUR_SECONDARY_SKILLS]
-- **Domain:** [YOUR_DOMAIN_EXPERTISE]
-- **Software:** [YOUR_TOOLS_AND_SOFTWARE]
+- **Primary:** TypeScript/JavaScript, Node.js, NestJS, React.js, Next.js, REST/GraphQL, PostgreSQL, SQL Server, Docker
+- **Secondary:** C#/ASP.NET Core, Python, React Native, Oracle DB, MongoDB, Socket.io/WebSockets, Kubernetes, RabbitMQ, Redis, Go, Bun (light)
+- **Domain:** Banking/financial services systems, brand-protection/security platforms, telecom operations tooling, real-time systems
+- **Software:** Azure, AWS, Firebase, Cloudflare, Git, Jest, TypeORM, Postman, Agile/SCRUM
 
 ### Certifications
-<!-- List relevant certifications with dates -->
-- **[CERTIFICATION_NAME]** - [HOURS]h - completed [DATE]
+- **English Advanced Certificate** - American Dominican Cultural Institute - completed Feb 2022
 
 ### Publications
-<!-- List peer-reviewed publications, if any -->
-- [AUTHOR_LIST] ([YEAR]). [TITLE]. [JOURNAL].
+- None
 
 ### Awards
-<!-- List relevant awards, hackathons, competitions -->
-- [AWARD_NAME] - [EVENT] ([YEAR])
+- None recorded
 
 ### Behavioral Profile
-<!-- Your behavioral assessment results (PI, DISC, Myers-Briggs, or self-assessment) -->
-- **[TRAIT_1]** - [DESCRIPTION]
-- **[TRAIT_2]** - [DESCRIPTION]
-- **Strengths:** [YOUR_STRENGTHS]
-- **Growth areas:** [YOUR_GROWTH_AREAS]
-- **Thrives in:** [YOUR_IDEAL_ENVIRONMENT]
+- **Innovation-driven** - tracks and adopts emerging tech (Go, Bun, Cloudflare; led blockchain adoption) *[inferred from documents]*
+- **Mentor / quality advocate** - code reviews, junior mentoring, continuous improvement culture *[inferred from documents]*
+- **Strengths:** cross-functional collaboration, translating business requirements into technical solutions, legacy modernization
+- **Growth areas:** (not yet assessed - fill in via /setup --section behavioral)
+- **Thrives in:** remote Agile/SCRUM teams, modern-stack product work
 
 ### What Excites You
-<!-- What motivates you professionally -->
-- [PASSION_1]
-- [PASSION_2]
+- Greenfield work with modern tech (Go, Bun, new frameworks)
+- Fintech/banking domain depth
+- Real-time and high-scale systems
+- Leadership/mentoring growth toward Tech Lead
 
 ### Target Sectors
-<!-- Industries and companies you're targeting -->
-- [SECTOR_1]: [EXAMPLE_COMPANIES]
-- [SECTOR_2]: [EXAMPLE_COMPANIES]
+- Remote-first tech companies: GitLab, Automattic, Deel, Remote.com and similar
+- Fintech/banking: building on current BANTRAB experience
+- Any sector with senior full-stack/backend TypeScript roles (remote anywhere or DR local)
 
 ### Deal-breakers
-<!-- Hard constraints on job search -->
-- [DEALBREAKER_1]
-- [DEALBREAKER_2]
+- None hard - evaluate everything, flag concerns case by case
+- Salary filter: none set (skipped during setup)
 
 ## Repo Structure
 - `cv/` - LaTeX CV variants (moderncv template, banking style)

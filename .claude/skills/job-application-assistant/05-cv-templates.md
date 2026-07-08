@@ -105,12 +105,17 @@ Write 5-7 lines that function as an "elevator pitch": a concise, compelling intr
 
 **Create 2-3 profile statement templates for your main role types:**
 
-<!-- SETUP: These are populated based on your background -->
-**For [YOUR_PRIMARY_ROLE_TYPE] roles:**
-> [YOUR_PROFILE_STATEMENT_TEMPLATE_1]
+**For Backend (Node.js/NestJS) roles:**
+> Backend developer with 8+ years of experience building APIs and services for banking, security, and telecom clients. Currently developing core banking systems with Node.js, NestJS, Oracle DB, and TypeORM at BDG for BANTRAB. Strong testing discipline (Jest unit and integration tests) and production experience across Azure and AWS with Docker.
 
-**For [YOUR_SECONDARY_ROLE_TYPE] roles:**
-> [YOUR_PROFILE_STATEMENT_TEMPLATE_2]
+**For Full-Stack (React + Node) roles:**
+> Full-stack developer with 8+ years shipping web and mobile products in TypeScript, React/Next.js, and Node.js. Delivered real-time systems (WebSockets/Socket.io), REST and GraphQL APIs on PostgreSQL, and React Native apps at Media Revolution; modernized legacy frontends to React at OpSec Security. Comfortable owning features end to end, from schema design to CI/CD.
+
+**For Frontend (React/Next.js) roles:**
+> Frontend-leaning full-stack developer with deep React.js and Next.js experience across product and enterprise platforms. Migrated legacy Knockout.js modules to modern React at OpSec Security, improving maintainability and onboarding. Brings backend fluency (Node.js, REST/GraphQL) that makes API integration and performance work faster.
+
+**For .NET/C# roles:**
+> Software engineer with 6+ years of C#/.NET experience spanning ASP.NET WebForms at Claro RD through ASP.NET Core services at Media Revolution and OpSec Security. Combines .NET backend depth with modern JavaScript/TypeScript frontend skills (React, Next.js) and cloud deployment experience on Azure.
 
 ### Core Competencies / Skills Section (Best Practice)
 Reorder and emphasize based on the role. Use bold category labels.

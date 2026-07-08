@@ -1,8 +1,7 @@
-%% Example CV - [YOUR_NAME]
+%% Example CV - Starlin Marrero
 %% Comprehensive overview of all competencies, experience, and achievements.
 %% Use as a master reference when tailoring role-specific CVs.
 %%
-%% SETUP: Run /setup to populate this with your actual information.
 %% Compile with: lualatex main_example.tex
 %% (pdflatex often fails on modern MiKTeX with fontawesome5 font-expansion errors.)
 
@@ -24,18 +23,18 @@
     linkcolor=blue,
     filecolor=magenta,
     urlcolor=blue,
-    pdftitle={[YOUR_NAME] - CV},
+    pdftitle={Starlin Marrero - CV},
     pdfpagemode=FullScreen,
 }
 \usepackage[scale=0.80]{geometry}
 \usepackage{import}
 
 % personal data
-\name{[First]}{[Last]}
-\address{[Your Address, City, Country]}{}{}
-\phone[mobile]{[+XX XXXXXXXXXX]}
-\email{[your.email@example.com]}
-\extrainfo{\href{[https://linkedin.com/in/your-profile]}{LinkedIn}, \href{[https://github.com/your-username]}{GitHub}}
+\name{Starlin}{Marrero}
+\address{Santo Domingo, Dominican Republic}{}{}
+\phone[mobile]{+1 (829) 772-4268}
+\email{starlin.marrero05@gmail.com}
+\extrainfo{\href{https://www.linkedin.com/in/starlinmarrero}{LinkedIn}, \href{https://github.com/starlinmarrero}{GitHub}}
 
 \begin{document}
 
@@ -46,7 +45,7 @@
 % ============================================================
 
 \vspace{6pt}
-\small{[Write a 3-5 line profile statement tailored to the role you're applying for. Focus on what makes you uniquely qualified. Example: "Data scientist with a PhD in [field] and X years of industry experience. Combines deep domain expertise in [domain] with strong applied machine learning and Python development skills. Experienced in developing end-to-end ML pipelines, from data ingestion to stakeholder-facing dashboards."]}
+\small{Full-stack developer with 8+ years of experience shipping web and mobile products in TypeScript, React/Next.js, Node.js, and C\#/.NET. Currently building core banking APIs with NestJS and Oracle DB for a major financial services client. Track record spans real-time systems, legacy modernization, cloud deployment on Azure and AWS, and mentoring junior developers. Open to remote roles worldwide.}
 
 % ============================================================
 %     CORE COMPETENCIES
@@ -56,15 +55,17 @@
 \vspace{1pt}
 \begin{itemize}
 
-\item \textbf{[Skill Category 1]}: [Specific skills, frameworks, tools. Be concrete.]
+\item \textbf{Languages}: TypeScript, JavaScript, Python, C\#, HTML, CSS
 
-\item \textbf{[Skill Category 2]}: [Specific skills, frameworks, tools.]
+\item \textbf{Backend}: Node.js, NestJS, Express.js, ASP.NET Core, .NET Framework, REST, GraphQL, WebSockets/Socket.io, TypeORM
 
-\item \textbf{[Skill Category 3]}: [Specific skills, frameworks, tools.]
+\item \textbf{Frontend \& Mobile}: React.js, Next.js, React Native, Electron, Tailwind, Bootstrap, Chart.js
 
-\item \textbf{[Skill Category 4]}: [Domain expertise, methods, approaches.]
+\item \textbf{Cloud \& Infrastructure}: Azure, AWS, Docker, Kubernetes, Firebase, RabbitMQ, Redis, CI/CD
 
-\item \textbf{[Skill Category 5]}: [Tools, platforms, software.]
+\item \textbf{Databases}: PostgreSQL, SQL Server, Oracle DB, MySQL, MongoDB, SQLite
+
+\item \textbf{Testing \& Practices}: Jest (unit + integration), Agile/SCRUM, code review, mentoring
 
 \end{itemize}
 
@@ -77,31 +78,43 @@
 \begin{itemize}
 
 % --- Most Recent Role ---
-\item{\cventry{[YYYY--Present]}{[Job Title]}{[Company]}{[City, Country]}{}{\vspace{1pt}
+\item{\cventry{2026--Present}{Backend Node.js Developer}{BDG, S.A.}{Santo Domingo, Dominican Republic}{}{\vspace{1pt}
 \begin{itemize}
-    \item [Achievement or responsibility 1 - be specific, use numbers where possible]
-    \item [Achievement or responsibility 2]
-    \item [Achievement or responsibility 3]
-    \item [Achievement or responsibility 4]
+    \item Developed and maintained backend APIs using Node.js and NestJS for BANTRAB, a major financial services client, supporting core banking systems
+    \item Designed and implemented data access layers with Oracle DB and TypeORM, ensuring reliable and efficient persistence across services
+    \item Wrote unit and integration tests with Jest to improve code reliability and reduce regressions
+    \item Collaborated with cross-functional teams to translate business requirements into scalable backend solutions
 \end{itemize}}}
 
 \vspace{3pt}
 
 % --- Previous Role ---
-\item{\cventry{[YYYY--YYYY]}{[Job Title]}{[Company]}{[City, Country]}{}{\vspace{1pt}
+\item{\cventry{2023--2025}{Software Engineer}{OpSec Security}{United States (remote)}{}{\vspace{1pt}
 \begin{itemize}
-    \item [Achievement or responsibility 1]
-    \item [Achievement or responsibility 2]
-    \item [Achievement or responsibility 3]
+    \item Developed and maintained security-critical web platforms for enterprise clients, protecting brand integrity at scale
+    \item Built and integrated RESTful APIs consumed by internal tools and third-party partners, reducing manual data handling
+    \item Containerized services using Docker and deployed to Azure, improving environment consistency and release cadence
+    \item Migrated legacy Knockout.js modules to modern React components, improving maintainability and developer onboarding time
 \end{itemize}}}
 
 \vspace{3pt}
 
 % --- Earlier Role ---
-\item{\cventry{[YYYY--YYYY]}{[Job Title]}{[Company]}{[City, Country]}{}{\vspace{1pt}
+\item{\cventry{2021--2023}{Senior Software Developer}{Media Revolution, SRL}{Dominican Republic}{}{\vspace{1pt}
 \begin{itemize}
-    \item [Achievement or responsibility 1]
-    \item [Achievement or responsibility 2]
+    \item Architected and delivered scalable full-stack features across web and mobile (React Native), serving a growing user base with high uptime requirements
+    \item Designed real-time communication systems using WebSockets and Socket.io, plus REST and GraphQL APIs on PostgreSQL
+    \item Led blockchain integration initiative, advising product leadership on technical feasibility
+    \item Mentored junior developers and conducted regular code reviews; optimized AWS infrastructure and CI/CD workflows
+\end{itemize}}}
+
+\vspace{3pt}
+
+% --- Earliest Role ---
+\item{\cventry{2016--2021}{ACD / Web Developer}{OPITEL (Claro RD)}{Santo Domingo, Dominican Republic}{}{\vspace{1pt}
+\begin{itemize}
+    \item Developed and maintained internal web applications for one of the Dominican Republic's largest telecom providers, supporting thousands of daily users (C\#, ASP.NET, SQL Server)
+    \item Automated data manipulation and report generation pipelines, replacing manual email-based workflows with a single web system
 \end{itemize}}}
 
 \end{itemize}
@@ -114,15 +127,11 @@
 \vspace{1pt}
 \begin{itemize}
 
-\item{\cventry{[YYYY--YYYY]}{[Degree] in [Field]}{[Institution]}{[City, Country]}{}{\vspace{1pt}
-Thesis: ``[Thesis Title].'' [Brief description of research focus.]
-}}
+\item{\cventry{2021--Present}{B.Sc. Systems \& Computer Engineering (in progress)}{Universidad Dominicana O\&M}{Santo Domingo, Dominican Republic}{}{}}
 
 \vspace{3pt}
 
-\item{\cventry{[YYYY--YYYY]}{[Degree] in [Field]}{[Institution]}{[City, Country]}{}{\vspace{1pt}
-[Brief description or key topics.]
-}}
+\item{\cventry{2022}{English Advanced Certificate}{American Dominican Cultural Institute}{Santo Domingo, Dominican Republic}{}{}}
 
 \end{itemize}
 
@@ -133,27 +142,7 @@ Thesis: ``[Thesis Title].'' [Brief description of research focus.]
 \section{Languages}
 \vspace{1pt}
 \begin{itemize}
-\item [Language 1] (native), [Language 2] (fluent), [Language 3] (intermediate).
-\end{itemize}
-
-% ============================================================
-%     PUBLICATIONS (optional)
-% ============================================================
-
-\section{Publications}
-\vspace{1pt}
-\begin{itemize}
-\item [Author(s)] ([Year]). [Title]. [Journal/Conference]. \href{[DOI_URL]}{DOI link}
-\end{itemize}
-
-% ============================================================
-%     HONORS AND AWARDS (optional)
-% ============================================================
-
-\section{Honors and Awards}
-\vspace{1pt}
-\begin{itemize}
-\item{\textbf{[Award Name]} -- [Event/Organization] ([Year]).}
+\item Spanish (native), English (fluent, professional).
 \end{itemize}
 
 % ============================================================
