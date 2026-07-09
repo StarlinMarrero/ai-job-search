@@ -6,13 +6,14 @@ Configured for: **Starlin Marrero** - senior-leaning full-stack/backend develope
 
 Primary:
 - **linkedin.com/jobs** - via the `linkedin-search` CLI skill (`.agents/skills/linkedin-search/`). Filter: Remote, plus Dominican Republic.
-- **remoteok.com** - remote board (WebSearch)
-- **weworkremotely.com** - remote board (WebSearch)
-- **wellfound.com** - startup/remote roles (WebSearch)
+- **getonbrd.com** - LATAM tech board, via the `getonbrd-search` CLI skill (`.agents/skills/getonbrd-search/`). Supports `--remote remote`, `--country DOM`, `--jobage` (client-side).
+- **remoteok.com** - remote board, via the `remoteok-search` CLI skill (`.agents/skills/remoteok-search/`). All filtering client-side; API window is the ~100 most recent listings.
+- **weworkremotely.com** - remote board, via the `weworkremotely-search` CLI skill (`.agents/skills/weworkremotely-search/`). RSS-based; supports `--category`, `--region "Dominican"`/`"Anywhere"`.
+- **wellfound.com** - startup/remote roles (WebSearch only - Cloudflare blocks automated access, no CLI possible)
 
 Secondary:
 - Remote-first company career pages via Google `site:` searches (GitLab, Automattic, Deel, Remote.com and similar)
-- **NOTE:** The Danish portal CLIs (`jobindex-search`, `jobbank-search`, `jobdanmark-search`, `jobnet-search`) are DISABLED for this profile - wrong market. Do not run them. Use `/add-portal` to add DR/LATAM-specific portals later.
+- **NOTE:** The Danish portal CLIs (`jobindex-search`, `jobbank-search`, `jobdanmark-search`, `jobnet-search`) are DISABLED for this profile - wrong market. Do not run them.
 
 ## Query Categories
 
@@ -26,8 +27,10 @@ Strongest and most desired career direction.
 linkedin-search: "Backend Developer" Node.js remote
 linkedin-search: "Full Stack Developer" TypeScript remote
 linkedin-search: NestJS developer remote
-site:remoteok.com node.js backend
-site:weworkremotely.com full stack typescript
+getonbrd-search: -q "node.js" --remote remote
+getonbrd-search: -q "fullstack typescript" --country DOM
+remoteok-search: -q "node" --jobage 14
+weworkremotely-search: -q "typescript" --category full-stack
 site:wellfound.com senior full stack engineer remote LATAM
 ```
 
@@ -38,8 +41,9 @@ Domain expertise from current BANTRAB banking work.
 ```
 linkedin-search: fintech backend engineer remote
 linkedin-search: "banking" Node.js developer remote
-site:remoteok.com fintech engineer
-site:weworkremotely.com fintech developer
+getonbrd-search: -q "fintech" --remote remote
+remoteok-search: -q "fintech"
+weworkremotely-search: -q "fintech"
 ```
 
 ### Priority 3: Frontend (React/Next.js) and .NET/C#
@@ -50,8 +54,10 @@ Adjacent directions with strong experience backing.
 linkedin-search: "React Developer" Next.js remote
 linkedin-search: "Frontend Engineer" React remote LATAM
 linkedin-search: ".NET Developer" C# remote
-site:remoteok.com react next.js
-site:weworkremotely.com .NET C#
+getonbrd-search: -q "react" --remote remote
+remoteok-search: -q "react"
+weworkremotely-search: -q "react" --category front-end
+weworkremotely-search: -q ".NET"
 ```
 
 ### Priority 4: Broader Technical (wider net)
