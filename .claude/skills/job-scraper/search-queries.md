@@ -17,7 +17,7 @@ Secondary:
 
 ## Query Categories
 
-Combine queries with "remote" or "Dominican Republic" / "Latin America" / "LATAM" where the site supports it.
+Queries are grouped by priority. Each query should be combined with your location terms (e.g. your city, region, or metro area) where the site supports it.
 
 ### Priority 1: Backend & Full-Stack (Node.js/TypeScript)
 

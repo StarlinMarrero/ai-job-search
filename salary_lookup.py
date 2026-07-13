@@ -43,6 +43,46 @@ STRIP_PATTERNS = [
 ]
 
 
+def fail_data_error(message):
+    """Exit with a user-facing salary data setup error."""
+    print(f"Error: invalid salary_data.json: {message}", file=sys.stderr)
+    print("", file=sys.stderr)
+    print("See tools/README_SALARY_TOOL.md for the expected format.", file=sys.stderr)
+    sys.exit(1)
+
+
+def validate_data(data):
+    """Validate the salary data shape before lookups use it."""
+    if not isinstance(data, dict):
+        fail_data_error("top-level JSON value must be an object")
+
+    metadata = data.get("metadata", {})
+    if metadata is not None and not isinstance(metadata, dict):
+        fail_data_error("'metadata' must be an object when provided")
+
+    companies = data.get("companies")
+    if not isinstance(companies, list):
+        fail_data_error("'companies' must be a list")
+
+    for index, entry in enumerate(companies, start=1):
+        if not isinstance(entry, dict):
+            fail_data_error(f"companies[{index}] must be an object")
+
+        company = entry.get("company")
+        if not isinstance(company, str) or not company.strip():
+            fail_data_error(f"companies[{index}].company must be a non-empty string")
+
+        city = entry.get("city")
+        if city is not None and not isinstance(city, str):
+            fail_data_error(f"companies[{index}].city must be a string when provided")
+
+        categories = entry.get("categories", {})
+        if categories is not None and not isinstance(categories, dict):
+            fail_data_error(f"companies[{index}].categories must be an object when provided")
+
+    return data
+
+
 def load_data():
     if not DATA_FILE.exists():
         print("Error: salary_data.json not found.", file=sys.stderr)
@@ -53,8 +93,12 @@ def load_data():
         print("If you don't have salary data, the salary lookup", file=sys.stderr)
         print("step will be skipped during /apply.", file=sys.stderr)
         sys.exit(1)
-    with open(DATA_FILE, "r", encoding="utf-8") as f:
-        return json.load(f)
+    try:
+        with open(DATA_FILE, "r", encoding="utf-8") as f:
+            data = json.load(f)
+    except json.JSONDecodeError as exc:
+        fail_data_error(f"invalid JSON at line {exc.lineno}, column {exc.colno}: {exc.msg}")
+    return validate_data(data)
 
 
 def normalize(s):
@@ -83,9 +127,8 @@ def extract_core_words(s):
     return [w for w in words if len(w) > 1]
 
 
-def match_score(query, entry_name):
-    """Compute a match score between 0 and 100 for ranking results."""
-    q_norm = normalize(query)
+def match_score_optimized(q_norm, q_ang, q_words_set, q_words_ang_set, query, entry_name):
+    """Compute a match score between 0 and 100 using precalculated query values."""
     n_norm = normalize(entry_name)
 
     if not q_norm or not n_norm:
@@ -97,9 +140,8 @@ def match_score(query, entry_name):
     if q_norm in n_norm:
         ratio = len(q_norm) / len(n_norm)
         if len(q_norm) <= 4 and ratio < 0.5:
-            q_words = set(extract_core_words(query))
             n_words = set(extract_core_words(entry_name))
-            if not q_words & n_words:
+            if not q_words_set & n_words:
                 pass
             else:
                 return 80 + int(ratio * 10)
@@ -112,7 +154,6 @@ def match_score(query, entry_name):
         else:
             return 80 + int(ratio * 10)
 
-    q_ang = anglicize(q_norm)
     n_ang = anglicize(n_norm)
     if q_ang == n_ang:
         return 85
@@ -120,36 +161,43 @@ def match_score(query, entry_name):
         shorter = min(len(q_ang), len(n_ang))
         longer = max(len(q_ang), len(n_ang))
         if shorter <= 4 and shorter / longer < 0.5:
-            q_words_ang = {anglicize(w) for w in extract_core_words(query)}
             n_words_ang = {anglicize(w) for w in extract_core_words(entry_name)}
-            if q_words_ang & n_words_ang:
+            if q_words_ang_set & n_words_ang:
                 return 75
         else:
             return 75
 
-    q_words = set(extract_core_words(query))
     n_words = set(extract_core_words(entry_name))
-    if not q_words or not n_words:
+    if not q_words_set or not n_words:
         return 0
 
-    overlap = q_words & n_words
+    overlap = q_words_set & n_words
     if not overlap:
-        q_words_ang = {anglicize(w) for w in q_words}
         n_words_ang = {anglicize(w) for w in n_words}
-        overlap = q_words_ang & n_words_ang
+        overlap = q_words_ang_set & n_words_ang
 
     if overlap:
-        if len(q_words) == 1:
-            q_word = list(q_words)[0]
+        if len(q_words_set) == 1:
+            q_word = list(q_words_set)[0]
             if q_word in n_words or anglicize(q_word) in {anglicize(w) for w in n_words}:
                 return 70
             else:
                 return 0
 
-        coverage = len(overlap) / len(q_words)
+        coverage = len(overlap) / len(q_words_set)
         return int(30 + coverage * 40)
 
     return 0
+
+
+def match_score(query, entry_name):
+    """Compute a match score between 0 and 100 for ranking results."""
+    q_norm = normalize(query)
+    q_ang = anglicize(q_norm)
+    q_words = extract_core_words(query)
+    q_words_set = set(q_words)
+    q_words_ang_set = {anglicize(w) for w in q_words}
+    return match_score_optimized(q_norm, q_ang, q_words_set, q_words_ang_set, query, entry_name)
 
 
 def search_company(data, query, city=None):
@@ -157,14 +205,21 @@ def search_company(data, query, city=None):
     companies = data.get("companies", [])
     scored = []
 
+    # Pre-calculate query representations once to avoid redundant computations inside the loop
+    q_norm = normalize(query)
+    q_ang = anglicize(q_norm)
+    q_words = extract_core_words(query)
+    q_words_set = set(q_words)
+    q_words_ang_set = {anglicize(w) for w in q_words}
+
     for entry in companies:
         if city:
             city_lower = city.lower()
-            entry_city = entry.get("city", "").lower()
+            entry_city = (entry.get("city") or "").lower()
             if city_lower not in entry_city and anglicize(city_lower) not in anglicize(entry_city):
                 continue
 
-        score = match_score(query, entry["company"])
+        score = match_score_optimized(q_norm, q_ang, q_words_set, q_words_ang_set, query, entry["company"])
         if score > 0:
             scored.append((score, entry))
 
@@ -204,12 +259,18 @@ def format_entry(entry, metadata):
             count = data.get("count")
             index = data.get("index")
             if count is not None or index is not None:
-                count_str = str(count) if count else "-"
-                if index is not None:
-                    diff = index - baseline
-                    sign = "+" if diff >= 0 else ""
+                count_str = str(count) if count is not None else "-"
+                if isinstance(index, (int, float)):
                     index_str = f"{index:.1f}"
-                    diff_str = f"{sign}{diff:.1f}%"
+                    if baseline == 0:
+                        diff_str = ""
+                    else:
+                        diff_pct = ((index - baseline) / baseline) * 100
+                        sign = "+" if diff_pct >= 0 else ""
+                        diff_str = f"{sign}{diff_pct:.1f}%"
+                elif index is not None:
+                    index_str = str(index)
+                    diff_str = ""
                 else:
                     index_str = "N/A*"
                     diff_str = ""
